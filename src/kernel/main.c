@@ -137,8 +137,8 @@ PUBLIC main()
   pick_proc();
 
   /* Now go to the assembly code to start running the current process. */
-  port_out(INT_CTLMASK, 0);	/* do not mask out any interrupts in 8259A */
-  port_out(INT2_MASK, 0);	/* same for second interrupt controller */
+  port_out(INT_CTLMASK, 0x1C);	/* mask all not used interrupts in 8259A */
+  port_out(INT2_MASK, 0x3F);	/* same for second interrupt controller */
   restart();
 }
 

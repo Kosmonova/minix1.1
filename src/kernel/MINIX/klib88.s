@@ -427,7 +427,7 @@ vid.4:	pushf			| copying may now start; save flags
 
 	cmp si,#0		| si = 0 means blank the screen
 	je vid.7		| jump for blanking
-	lock			| this is a trick for the IBM PC simulator only
+	nop			| removed original lock (whit this don't works on real pc)
 	nop			| 'lock' indicates a video ram access
 	rep			| this is the copy loop
 	movw			| ditto

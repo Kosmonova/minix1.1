@@ -58,6 +58,7 @@
 #define MOTOR_MASK      0xF0	/* these bits control the motors in DOR */
 #define ENABLE_INT      0x0C	/* used for setting DOR port */
 #define ST0_BITS        0xF8	/* check top 5 bits of seek status */
+#define ST0_BITS_TRANS  0xD8	/* check bits ST0 in transfer function */
 #define ST3_FAULT       0x80	/* if this bit is set, drive is sick */
 #define ST3_WR_PROTECT  0x40	/* set when diskette is write protected */
 #define ST3_READY       0x20	/* set when drive is ready */
@@ -104,7 +105,7 @@
 #define MAX_RESULTS        8	/* max number of bytes controller returns */
 #define NR_DRIVES          2	/* maximum number of drives */
 #define DIVISOR          128	/* used for sector size encoding */
-#define MAX_FDC_RETRY    100	/* max # times to try to output to FDC */
+#define MAX_FDC_RETRY  10000	/* max # times to try to output to FDC */
 #define NT                 4	/* number of diskette/drive combinations */
 
 /* Variables. */
@@ -445,7 +446,8 @@ register struct floppy *fp;	/* pointer to the drive struct */
 	printf("Diskette in drive %d is write protected.\n", fp->fl_drive);
 	return(ERR_WR_PROTECT);
   }
-  if ((fp->fl_results[ST0] & ST0_BITS) != TRANS_ST0) return(ERR_TRANSFER);
+  if ((fp->fl_results[ST0] & ST0_BITS_TRANS) != TRANS_ST0)
+    return(ERR_TRANSFER);
   if (fp->fl_results[ST1] | fp->fl_results[ST2]) return(ERR_TRANSFER);
 
   /* Compare actual numbers of sectors transferred with expected number. */
