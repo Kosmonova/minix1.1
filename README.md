@@ -57,14 +57,15 @@ in Linux, or if not, is requiered create own. For creating device name exist
 under Linux utility `mknod`. Utility can be used by follows:
 
 ```
-mknod type major minor device
+mknod device type major minor
 ```
 
-,where `type` means type of device, for block device, that floppy is `type=b`,
+,where
+	`device` is file device name, that will be created, for example `/dev/fd0`
+	`type` means type of device, for block device, that floppy is `type=b`,
 	`major` is major numer of device, for FDD `major=2`,
 	`minor` represent precise specific device, for FDD menas specific number of
 		FDD and size of floppy disk,
-	`device` is file device name, that will be created, for example `/dev/fd0`
 
 Minor number of FDD is calculate by equation:
 	*minor = FDDN + 4 * ISD*
@@ -84,13 +85,13 @@ Index *ISD* into table *floppy_type* for 1.2MB is 2, and thefore
 Command for creating this specific device number is:
 
 ```
-mknod b 2 8 /dev/fd0h1200
+sudo mknod /dev/fd0h1200 b 2 8
 ```
 
 And after that we can format disk exactly on 1.2MB by typing command:
 
 ```
-fdformat /dev/fd0h1200
+sudo fdformat /dev/fd0h1200
 ```
 
 ## writing floppy disk under linux
