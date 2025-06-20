@@ -12,7 +12,9 @@ Compiling under minix 1.1 is unconfortable, because this OS is very old, slow,
 has absense modern commands, for today absolutely not user friendly. In source
 directory exist file cc.c, but he don't have full implementing of compiler.
 This code runs another programs, tha isn't on minix source disk. This source
-codes is possible find in ACK compiler: https://github.com/davidgiven/ack
+codes is possible find in ACK compiler:
+https://github.com/davidgiven/ack
+
 I compiled last version of this compiler direct for linux, but he don't make
 16-bit code. Unfortunately I don't sucsesfull compile old versin this compiler
 from 1987.
@@ -36,6 +38,7 @@ It might sweem, that when this system is relative very simply, may to provide
 on other hand lower load and higher speed of executing commands and he booting,
 but in real for reasons mentioned above it isn't true. For more informatin
 about old minix and is possible get from book:
+
 https://archive.org/details/sams-operating.-systems-design.and.-implementation.-1987
 
 ## formatting of floppy disk under linux
@@ -73,6 +76,7 @@ Minor number of FDD is calculate by equation:
 	one FDD is FDDN=0). On Linux can be *FDDN*=<0,3>
 	*ISD* is index into table with choises property of floppy disk. This index
 	can be chosed from variable *floppy_type*, that is in kernel source:
+
 	https://elixir.bootlin.com/linux/v6.16-rc1/source/drivers/block/floppy.c
 Minor also is partically documented on `man fdformat` with examples of specific
 device name.
@@ -96,7 +100,9 @@ sudo fdformat /dev/fd0h1200
 
 ## writing floppy disk under linux
 First is needed download changed boot image from github:
+
 https://github.com/Kosmonova/minix1.1/releases
+
 Next we move into directory, where is saved
 *MINIX11-1200K-DISK1-BOOT-changed.img* and type into terminal command:
 
@@ -106,7 +112,9 @@ dd if=MINIX11-1200K-DISK1-BOOT-changed.img of=/dev/fd0h1200
 
 Another image disk don't have problems and not needed any changes for running
 on qemu or real modern pc. Those images can be downloaded from:
-https://computer.retromuseum.org:88/software/pcx86/sys/unix/minix/1.1/pc-at/
+
+https://www.pcjs.org/software/pcx86/sys/unix/minix/1.1/pc-at/
+
 For running minix 1.1 is required disk *MINIX11-1200K-DISK2-ROOT.img* and
 *MINIX11-1200K-DISK3-USR.img*. If we need compile source kernel, we need
 *MINIX11-1200K-DISK4-KERNEL.img* and *MINIX11-1200K-DISK5-TOOLS.img* or
