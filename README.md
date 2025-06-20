@@ -184,6 +184,7 @@ years don't wokrs for me. Maximum year, that works me is into 1999.
 
 
 For login into `root` is password `Geheim`.
+For login into `ast` is password `Wachtwoord`.
 
 ![console0](./photos/console4.png)
 
