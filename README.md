@@ -64,10 +64,10 @@ mknod device type major minor
 ```
 
 ,where
-	`device` is file device name, that will be created, for example `/dev/fd0`
-	`type` means type of device, for block device, that floppy is `type=b`,
-	`major` is major numer of device, for FDD `major=2`,
-	`minor` represent precise specific device, for FDD menas specific number of
+*	`device` is file device name, that will be created, for example `/dev/fd0`
+*	`type` means type of device, for block device, that floppy is `type=b`,
+*	`major` is major numer of device, for FDD `major=2`,
+*	`minor` represent precise specific device, for FDD menas specific number of
 		FDD and size of floppy disk,
 
 Minor number of FDD is calculate by equation:
